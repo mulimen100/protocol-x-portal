@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol-X | Intelligence Portal</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 22 8 22 16 12 22 2 16 2 8 12 2' /%3E%3Cline x1='8' y1='8' x2='16' y2='16' /%3E%3Cline x1='16' y1='8' x2='8' y2='16' /%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-400: #94a3b8;
+            --slate-100: #f1f5f9;
+            --navy-700: #1d3557;
+            --accent: #2563eb;
+            --white: #ffffff;
+            --danger: #ef4444;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-100);
+            color: var(--slate-900);
+            line-height: 1.6;
+        }
+
+        /* --- Layout & Spacing --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            background-color: var(--slate-900);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--slate-800);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--slate-900);
+            color: var(--white);
+            padding: 120px 0 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--slate-400);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* --- Core Components --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: var(--slate-900);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--slate-800);
+        }
+
+        .text-block p {
+            font-size: 16px;
+            color: var(--slate-700);
+            margin-bottom: 20px;
+        }
+
+        /* --- The Digital Factory --- */
+        .factory-section {
+            background-color: var(--white);
+        }
+
+        /* --- Login / Briefing --- */
+        .portal-section {
+            background-color: var(--slate-100);
+        }
+
+        .login-box {
+            background: var(--white);
+            padding: 40px;
+            border-top: 4px solid var(--slate-900);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--slate-400);
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            background: var(--slate-900);
+            color: var(--white);
+            border: none;
+            padding: 14px 24px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background: var(--accent);
+        }
+
+        /* --- Private Briefing View --- */
+        .private-header {
+            background-color: #b91c1c;
+            /* Solid deep red */
+            color: var(--white);
+            padding: 16px 0;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .briefing-card {
+            background: var(--white);
+            padding: 40px;
+            border-top: 4px solid var(--slate-900);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e2e8f0;
+            color: var(--slate-700);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        /* --- Video Placeholder --- */
+        .video-wrapper {
+            background: var(--slate-800);
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            margin: 40px auto 0 auto;
+            max-width: 800px;
+            border: 1px solid var(--slate-700);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--slate-900);
+            color: var(--slate-400);
+            padding: 60px 0;
+            font-size: 12px;
+            text-align: center;
+            border-top: 1px solid var(--slate-800);
+            margin-top: 80px;
+        }
+
+        /* SPA Routing Hiding Classes */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" onclick="navigateHome()" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 22 8 22 16 12 22 2 16 2 8 12 2"></polygon>
+                    <line x1="8" y1="8" x2="16" y2="16"></line>
+                    <line x1="16" y1="8" x2="8" y2="16"></line>
+                </svg>
+                PROTOCOL-X
+            </a>
+            <div style="color: var(--slate-400); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                Secure Intelligence Portal</div>
+        </div>
+    </header>
+
+    <!-- VIEWS CONTAINER -->
+    <main id="app">
+
+        <!-- ================= HOME VIEW ================= -->
+        <div id="view-home" class="view active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Systemic AI Compliance.<br>Real-Time Regulatory Intelligence.</h1>
+                    <p>The Digital Factory for Tier-1 Institutions. Monitoring high-risk AI gaps before they become
+                        liabilities.</p>
+                </div>
+            </section>
+
+            <section class="factory-section">
+                <div class="container grid-2">
+                    <div class="text-block">
+                        <span class="section-title">The Digital Factory</span>
+                        <h2>Autonomous Scanning Engines</h2>
+                        <p>Protocol-X deploys headless diagnostic agents to continuously audit European SaaS and
+                            foundational AI models. We map public-facing interfaces and legal documentation against the
+                            incoming mandates of the EU AI Act.</p>
+                        <p>Specifically, our logic engines target <strong>Article 13</strong> (Technical Documentation &
+                            System Transparency) and <strong>Article 52</strong> (Transparency Obligations for certain
+                            AI systems). By programmatically identifying where companies fail to watermark synthetic
+                            content or disclose "human-in-the-loop" fallbacks, we extract actionable legal exposure
+                            data.</p>
+                    </div>
+                    <div class="text-block">
+                        <span class="section-title">The Protocol-X Standard</span>
+                        <h2>Executive Summary</h2>
+                        <p>We do not provide generic consulting. Protocol-X delivers cryptographic-level proof of
+                            regulatory failure across entire market sectors.</p>
+                        <p>For law firms and tier-1 institutions, this means moving from reactive compliance to
+                            proactive liability management. Our findings represent immediate secondary liability risks
+                            for "Deployers" of high-risk third-party AI systems.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="portal-section">
+                <div class="container">
+                    <div class="login-box">
+                        <span class="section-title">Client Briefing Access</span>
+                        <h3>Institutional Login</h3>
+                        <p style="font-size: 14px; color: var(--slate-700);">Enter your secure access token to retrieve
+                            your confidential intelligence briefing.</p>
+                        <input type="text" id="access_token" class="login-input" placeholder="e.g. PX-AUTH-123">
+                        <button class="login-btn" onclick="handleLogin()">AUTHENTICATE</button>
+                        <p id="auth_error"
+                            style="color: var(--danger); font-size: 12px; margin-top: 10px; display: none;">INVALID OR
+                            EXPIRED ACCESS TOKEN</p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <video style="width: 100%; height: 100%; object-fit: cover;" controls>
+                            <source src="protocol-x-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= BRIEFING VIEW ================= -->
+        <div id="view-briefing" class="view">
+            <div class="private-header">
+                &#9888; PRIVATE & CONFIDENTIAL BRIEFING &bull; PREPARED FOR <span id="client-name-header">CLIENT</span>
+                &bull; AUTHORIZED ACCESS ONLY
+            </div>
+
+            <section class="portal-section" style="padding-top: 60px;">
+                <div class="container">
+                    <div class="briefing-card" id="briefing-content">
+                        <!-- Dynamic Content Inject Here -->
+                    </div>
+
+                    <div class="video-wrapper">
+                        <video style="width: 100%; height: 100%; object-fit: cover;" controls>
+                            <source src="protocol-x-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Protocol-X Intelligence Systems.</p>
+            <p style="margin-top: 8px; color: var(--slate-700);">PRELIMINARY RISK ASSESSMENT. NOT FINAL LEGAL OR
+                REGULATORY ADVICE.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic Data
+        // Embedded Data to bypass Local File CORS Fetch issues
+        const clientsData = [
+            {
+                "company": "BNP Paribas",
+                "country": "France",
+                "slug": "bnp-paribas",
+                "message": "Exposure in automated loan underwriting systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-BNP-2026-F91"
+            },
+            {
+                "company": "Deutsche Bank",
+                "country": "Germany",
+                "slug": "deutsche-bank",
+                "message": "Transparency failures in market risk management models.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-DBK-2026-G22"
+            },
+            {
+                "company": "Santander",
+                "country": "Spain",
+                "slug": "santander",
+                "message": "Lack of robustness (Article 15) in customer service systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-SAN-2026-A15"
+            },
+            {
+                "company": "HSBC (EU)",
+                "country": "UK/Europe",
+                "slug": "hsbc-eu",
+                "message": "Regulatory gaps between UK law and EU Act.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-HSBC-2026-K09"
+            },
+            {
+                "company": "UniCredit",
+                "country": "Italy",
+                "slug": "unicredit",
+                "message": "Article 52 risk in complex chatbot interfaces.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-UNC-2026-B82"
+            },
+            {
+                "company": "ING Group",
+                "country": "Netherlands",
+                "slug": "ing",
+                "message": "Technical documentation failures for vendor-based AI models.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-ING-2026-M44"
+            },
+            {
+                "company": "Intesa Sanpaolo",
+                "country": "Italy",
+                "slug": "intesa",
+                "message": "Legal exposure in fraud detection systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13",
+                "access_token": "PX-INT-2026-C33"
+            },
+            {
+                "company": "Société Générale",
+                "country": "France",
+                "slug": "socgen",
+                "message": "Regulatory exposure in asset management.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-SGN-2026-T11"
+            },
+            {
+                "company": "Crédit Agricole",
+                "country": "France",
+                "slug": "credit-agricole",
+                "message": "Transparency gaps in retail lending systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-CAG-2026-U44"
+            },
+            {
+                "company": "Commerzbank",
+                "country": "Germany",
+                "slug": "commerzbank",
+                "message": "Technical documentation failures in cloud-based AI models.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-CBK-2026-V55"
+            },
+            {
+                "company": "Nordea Bank",
+                "country": "Finland/Sweden",
+                "slug": "nordea",
+                "message": "Article 15 exposure in country risk rating systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-NDA-2026-W32"
+            },
+            {
+                "company": "Danske Bank",
+                "country": "Denmark",
+                "slug": "danske-bank",
+                "message": "Regulatory risk in automated AML systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-DSK-2026-X09"
+            },
+            {
+                "company": "UBS (EU)",
+                "country": "Switzerland/Europe",
+                "slug": "ubs-eu",
+                "message": "Disclosure gaps (Article 52) with premium clients.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-UBS-2026-Y81"
+            },
+            {
+                "company": "KBC Group",
+                "country": "Belgium",
+                "slug": "kbc",
+                "message": "Non-compliance with human oversight requirements in investment systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-KBC-2026-Z22"
+            },
+            {
+                "company": "Erste Group",
+                "country": "Austria",
+                "slug": "erste",
+                "message": "System robustness failures against prompt injection attacks.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-ERS-2026-A99"
+            },
+            {
+                "company": "Raiffeisen Bank",
+                "country": "Austria",
+                "slug": "raiffeisen",
+                "message": "Legal exposure in integrating language models in private banking.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-RAI-2026-B44"
+            },
+            {
+                "company": "ABN AMRO",
+                "country": "Netherlands",
+                "slug": "abn-amro",
+                "message": "Gaps in forensic documentation of AI decisions.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-ABN-2026-C12"
+            },
+            {
+                "company": "SEB",
+                "country": "Sweden",
+                "slug": "seb",
+                "message": "Article 13 risk in enterprise wealth management systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-SEB-2026-D55"
+            },
+            {
+                "company": "Swedbank",
+                "country": "Sweden",
+                "slug": "swedbank",
+                "message": "Algorithmic transparency failures in mortgage systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-SWB-2026-E08"
+            },
+            {
+                "company": "Barclays (EU)",
+                "country": "Global",
+                "slug": "barclays-eu",
+                "message": "EU AI Act exposure for EU operations.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-BAR-2026-F91"
+            },
+            {
+                "company": "BBVA",
+                "country": "Spain",
+                "slug": "bbva",
+                "message": "High Article 15 risk due to third-party vendor integration.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-BVA-2026-G22"
+            },
+            {
+                "company": "CaixaBank",
+                "country": "Spain",
+                "slug": "caixabank",
+                "message": "Lack of adequate disclosure in voice-based customer service systems.",
+                "category": "Banking & Finance",
+                "risk": "Article 13 & 15",
+                "access_token": "PX-CAX-2026-H33"
+            },
+            {
+                "company": "Linklaters",
+                "country": "London/Global",
+                "slug": "linklaters",
+                "message": "End-client exposure to Article 13 failures.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 15",
+                "access_token": "PX-LNK-2026-D12"
+            },
+            {
+                "company": "Clifford Chance",
+                "country": "London/Global",
+                "slug": "clifford-chance",
+                "message": "Gaps in AI due diligence processes.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 15",
+                "access_token": "PX-CLF-2026-E55"
+            },
+            {
+                "company": "Garrigues",
+                "country": "Spain",
+                "slug": "garrigues",
+                "message": "Non-compliance of internal AI systems.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 15",
+                "access_token": "PX-GAR-2026-H08"
+            },
+            {
+                "company": "Gide Loyrette Nouel",
+                "country": "France",
+                "slug": "gide",
+                "message": "Black-box risks in contract analysis tools.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 15",
+                "access_token": "PX-GID-2026-J91"
+            },
+            {
+                "company": "Allen & Overy",
+                "country": "Global",
+                "slug": "allenovery",
+                "message": "Non-compliance with human oversight requirements (Article 14).",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 15",
+                "access_token": "PX-AOV-2026-L42"
+            },
+            {
+                "company": "Freshfields",
+                "country": "Germany/London",
+                "slug": "freshfields",
+                "message": "Exposure in AI-based M&A due diligence.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-FRS-2026-J12"
+            },
+            {
+                "company": "Hogan Lovells",
+                "country": "Global",
+                "slug": "hogan-lovells",
+                "message": "Article 13 compliance gaps in litigation portfolio management tools.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-HOG-2026-K55"
+            },
+            {
+                "company": "White & Case",
+                "country": "Global",
+                "slug": "whitecase",
+                "message": "Black-box risks in jurisprudence prediction tools.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-WHT-2026-L88"
+            },
+            {
+                "company": "Latham & Watkins",
+                "country": "Global",
+                "slug": "latham-watkins",
+                "message": "Lack of technical documentation for internal research AI tools.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-LAT-2026-M42"
+            },
+            {
+                "company": "CMS",
+                "country": "Global",
+                "slug": "cms-legal",
+                "message": "Client exposure to fines due to unverified AI advice.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-CMS-2026-N01"
+            },
+            {
+                "company": "Loyens & Loeff",
+                "country": "Netherlands/Belgium",
+                "slug": "loyens-loeff",
+                "message": "Regulatory risk in tax optimization tools.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 14 & 26",
+                "access_token": "PX-LOY-2026-P99"
+            },
+            {
+                "company": "Allianz",
+                "country": "Germany",
+                "slug": "allianz",
+                "message": "Risk in insurance premium pricing algorithms.",
+                "category": "Insurance & Pharma",
+                "risk": "Bias & Transparency",
+                "access_token": "PX-ALZ-2026-P01"
+            },
+            {
+                "company": "AXA",
+                "country": "France",
+                "slug": "axa",
+                "message": "Article 52 exposure in claims management systems.",
+                "category": "Insurance & Pharma",
+                "risk": "Bias & Transparency",
+                "access_token": "PX-AXA-2026-Q88"
+            },
+            {
+                "company": "Sanofi",
+                "country": "France",
+                "slug": "sanofi",
+                "message": "Lack of transparency in AI systems for drug discovery.",
+                "category": "Insurance & Pharma",
+                "risk": "Bias & Transparency",
+                "access_token": "PX-SNF-2026-R12"
+            },
+            {
+                "company": "Generali",
+                "country": "Italy",
+                "slug": "generali",
+                "message": "Technical documentation failures in machine learning models.",
+                "category": "Insurance & Pharma",
+                "risk": "Bias & Transparency",
+                "access_token": "PX-GEN-2026-S77"
+            },
+            {
+                "company": "Zurich Insurance",
+                "country": "Switzerland/EU",
+                "slug": "zurich",
+                "message": "Documentation failures in life expectancy prediction models.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-ZUR-2026-Q11"
+            },
+            {
+                "company": "Munich Re",
+                "country": "Germany",
+                "slug": "munich-re",
+                "message": "Article 15 exposure in climate risk assessment systems.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-MUN-2026-R55"
+            },
+            {
+                "company": "Swiss Re",
+                "country": "Switzerland/EU",
+                "slug": "swiss-re",
+                "message": "Disclosure gaps in automated reinsurance.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-SRE-2026-S32"
+            },
+            {
+                "company": "Aviva (EU)",
+                "country": "Global",
+                "slug": "aviva",
+                "message": "Bias risk in premium determination systems.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-AVI-2026-T09"
+            },
+            {
+                "company": "Mapfre",
+                "country": "Spain",
+                "slug": "mapfre",
+                "message": "Lack of transparency in auto claims management systems.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-MAP-2026-U81"
+            },
+            {
+                "company": "Aegon",
+                "country": "Netherlands",
+                "slug": "aegon",
+                "message": "Article 13 failures in AI-based pension systems.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-AEG-2026-V22"
+            },
+            {
+                "company": "Legal & General",
+                "country": "Global",
+                "slug": "legal-general",
+                "message": "AI Act exposure in institutional asset management models.",
+                "category": "Insurance & Asset Management",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-LGN-2026-W44"
+            },
+            {
+                "company": "SAP",
+                "country": "Germany",
+                "slug": "sap",
+                "message": "Article 13 risk in AI tools embedded in ERP.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-SAP-2026-X12"
+            },
+            {
+                "company": "Telefónica",
+                "country": "Spain",
+                "slug": "telefonica",
+                "message": "Lack of adequate disclosure (Article 52) in customer interfaces.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-TEL-2026-Y55"
+            },
+            {
+                "company": "Orange",
+                "country": "France",
+                "slug": "orange",
+                "message": "Cyber robustness failures in network management models.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-ORA-2026-Z08"
+            },
+            {
+                "company": "Deutsche Telekom",
+                "country": "Germany",
+                "slug": "deutsche-telekom",
+                "message": "Regulatory exposure in big data analytics systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-DTK-2026-A91"
+            },
+            {
+                "company": "Accenture (EU)",
+                "country": "Global",
+                "slug": "accenture-eu",
+                "message": "Deployer duty gaps for their clients.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-ACC-2026-B22"
+            },
+            {
+                "company": "Capgemini",
+                "country": "France",
+                "slug": "capgemini",
+                "message": "Risk in undocumented industrial AI applications.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-CAP-2026-C33"
+            },
+            {
+                "company": "Enel",
+                "country": "Italy",
+                "slug": "enel",
+                "message": "Article 15 exposure in smart grid management systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-ENL-2026-D12"
+            },
+            {
+                "company": "EDF",
+                "country": "France",
+                "slug": "edf",
+                "message": "AI safety failures in critical operations systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-EDF-2026-E55"
+            },
+            {
+                "company": "Iberdrola",
+                "country": "Spain",
+                "slug": "iberdrola",
+                "message": "Lack of transparency in energy demand forecasting systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-IBE-2026-F88"
+            },
+            {
+                "company": "Siemens",
+                "country": "Germany",
+                "slug": "siemens",
+                "message": "Regulatory risk in industrial manufacturing AI tools (Article 13).",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-SIE-2026-G42"
+            },
+            {
+                "company": "Airbus",
+                "country": "France/Germany",
+                "slug": "airbus",
+                "message": "Legal exposure in AI systems for logistics and operations.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-AIR-2026-H01"
+            },
+            {
+                "company": "Volkswagen Group",
+                "country": "Germany",
+                "slug": "volkswagen",
+                "message": "AI transparency failures in automated production lines.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-VW-2026-J99"
+            },
+            {
+                "company": "Bayer",
+                "country": "Germany",
+                "slug": "bayer",
+                "message": "Article 13 risk in clinical data analysis systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-BAY-2026-K11"
+            },
+            {
+                "company": "Nokia",
+                "country": "Finland",
+                "slug": "nokia",
+                "message": "System robustness gaps in AI-driven 5G deployments.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-NOK-2026-L55"
+            },
+            {
+                "company": "TotalEnergies",
+                "country": "France",
+                "slug": "totalenergies",
+                "message": "Article 15 exposure in oil and gas exploration prediction systems.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-TOT-2026-M32"
+            },
+            {
+                "company": "Stellantis",
+                "country": "Global",
+                "slug": "stellantis",
+                "message": "Non-compliance of AI tools in supply chain management.",
+                "category": "Tech, Telecom & Energy",
+                "risk": "Article 15 & 52",
+                "access_token": "PX-STL-2026-N09"
+            },
+            {
+                "company": "EY Law",
+                "country": "Germany",
+                "slug": "ey-law",
+                "message": "Regulatory exposure for Deployers avoiding Article 13 transparency standards.",
+                "category": "Tier-1 Law Firms",
+                "risk": "Article 13 & 52",
+                "access_token": "PX-EYL-2026-Z88"
+            }
+        ];
+
+        let briefings = {};
+        let authenticatedSlugs = new Set();
+
+        function initPortal() {
+            clientsData.forEach(item => {
+                briefings[item.slug] = {
+                    route: item.slug,
+                    client: item.company,
+                    badge: item.category,
+                    access_token: item.access_token,
+                    title: 'PRIVILEGED & CONFIDENTIAL: AI Regulatory Exposure Briefing',
+                    content: `
+                        <p><strong>Executive Summary:</strong> Prepared for ${item.company} (${item.country}). This briefing outlines systemic risks identified by Protocol-X's autonomous scanning engines.</p>
+                        <p style="margin-top: 20px;"><strong>Intelligence Insights:</strong><br>
+                        &bull; Audit Focus: ${item.risk}.<br>
+                        &bull; Finding: ${item.message}</p>
+                        <p style="font-size: 16px; margin-top: 24px; color: var(--danger);"><strong>Impact Analysis:</strong> Immediate secondary liability detected. Failure to meet compliance standards places the firm and its clients at high risk.</p>
+                        <p style="margin-top: 24px;"><strong>Next Step:</strong> The secure portal is ready with the full risk-map.</p>
+                        <a href="mailto:contact@protocol-x.com?subject=Protocol-X: Interest in Phase 2 Audit - ${item.company}&body=I have reviewed the preliminary briefing. Please provide access to the full Phase 2 audit report and technical proofs." style="display: inline-block; background: var(--slate-900); color: var(--white); padding: 12px 24px; text-decoration: none; font-weight: 600; border-radius: 4px; margin-top: 24px; transition: background 0.2s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--slate-900)'">Request Phase 2 Audit Access &rarr;</a>
+                    `
+                };
+            });
+        }
+
+        function renderBriefing(tokenObj) {
+            document.getElementById('client-name-header').innerText = tokenObj.client.toUpperCase();
+
+            const contentDiv = document.getElementById('briefing-content');
+            contentDiv.innerHTML = `
+                <span class="status-badge">${tokenObj.badge}</span>
+                <h3 style="font-size: 24px; margin-bottom: 24px;">${tokenObj.title}</h3>
+                ${tokenObj.content}
+            `;
+
+            document.getElementById('view-home').classList.remove('active');
+            document.getElementById('view-briefing').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function navigateHome() {
+            document.getElementById('view-briefing').classList.remove('active');
+            document.getElementById('view-home').classList.add('active');
+            document.getElementById('auth_error').style.display = 'none';
+            document.getElementById('access_token').value = '';
+            window.scrollTo(0, 0);
+        }
+
+        // Static Login Handler
+        function handleLogin() {
+            const token = document.getElementById('access_token').value.trim().toUpperCase();
+            const errorText = document.getElementById('auth_error');
+
+            let foundProfile = null;
+            for (let slug in briefings) {
+                if (token === briefings[slug].access_token) {
+                    foundProfile = briefings[slug];
+                    break;
+                }
+            }
+
+            if (foundProfile) {
+                errorText.style.display = 'none';
+                renderBriefing(foundProfile);
+            } else {
+                errorText.innerText = "INVALID OR EXPIRED ACCESS TOKEN";
+                errorText.style.display = 'block';
+            }
+        }
+
+        // Initialize Map on Load
+        window.addEventListener('load', initPortal);
+
+    </script>
+</body>
+
+</html>

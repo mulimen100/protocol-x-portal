@@ -1,0 +1,551 @@
+[
+    {
+        "company": "BNP Paribas",
+        "country": "France",
+        "slug": "bnp-paribas",
+        "message": "Exposure in automated loan underwriting systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-BNP-2026-F91"
+    },
+    {
+        "company": "Deutsche Bank",
+        "country": "Germany",
+        "slug": "deutsche-bank",
+        "message": "Transparency failures in market risk management models.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-DBK-2026-G22"
+    },
+    {
+        "company": "Santander",
+        "country": "Spain",
+        "slug": "santander",
+        "message": "Lack of robustness (Article 15) in customer service systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-SAN-2026-A15"
+    },
+    {
+        "company": "HSBC (EU)",
+        "country": "UK/Europe",
+        "slug": "hsbc-eu",
+        "message": "Regulatory gaps between UK law and EU Act.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-HSBC-2026-K09"
+    },
+    {
+        "company": "UniCredit",
+        "country": "Italy",
+        "slug": "unicredit",
+        "message": "Article 52 risk in complex chatbot interfaces.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-UNC-2026-B82"
+    },
+    {
+        "company": "ING Group",
+        "country": "Netherlands",
+        "slug": "ing",
+        "message": "Technical documentation failures for vendor-based AI models.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-ING-2026-M44"
+    },
+    {
+        "company": "Intesa Sanpaolo",
+        "country": "Italy",
+        "slug": "intesa",
+        "message": "Legal exposure in fraud detection systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13",
+        "access_token": "PX-INT-2026-C33"
+    },
+    {
+        "company": "Société Générale",
+        "country": "France",
+        "slug": "socgen",
+        "message": "Regulatory exposure in asset management.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-SGN-2026-T11"
+    },
+    {
+        "company": "Crédit Agricole",
+        "country": "France",
+        "slug": "credit-agricole",
+        "message": "Transparency gaps in retail lending systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-CAG-2026-U44"
+    },
+    {
+        "company": "Commerzbank",
+        "country": "Germany",
+        "slug": "commerzbank",
+        "message": "Technical documentation failures in cloud-based AI models.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-CBK-2026-V55"
+    },
+    {
+        "company": "Nordea Bank",
+        "country": "Finland/Sweden",
+        "slug": "nordea",
+        "message": "Article 15 exposure in country risk rating systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-NDA-2026-W32"
+    },
+    {
+        "company": "Danske Bank",
+        "country": "Denmark",
+        "slug": "danske-bank",
+        "message": "Regulatory risk in automated AML systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-DSK-2026-X09"
+    },
+    {
+        "company": "UBS (EU)",
+        "country": "Switzerland/Europe",
+        "slug": "ubs-eu",
+        "message": "Disclosure gaps (Article 52) with premium clients.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-UBS-2026-Y81"
+    },
+    {
+        "company": "KBC Group",
+        "country": "Belgium",
+        "slug": "kbc",
+        "message": "Non-compliance with human oversight requirements in investment systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-KBC-2026-Z22"
+    },
+    {
+        "company": "Erste Group",
+        "country": "Austria",
+        "slug": "erste",
+        "message": "System robustness failures against prompt injection attacks.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-ERS-2026-A99"
+    },
+    {
+        "company": "Raiffeisen Bank",
+        "country": "Austria",
+        "slug": "raiffeisen",
+        "message": "Legal exposure in integrating language models in private banking.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-RAI-2026-B44"
+    },
+    {
+        "company": "ABN AMRO",
+        "country": "Netherlands",
+        "slug": "abn-amro",
+        "message": "Gaps in forensic documentation of AI decisions.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-ABN-2026-C12"
+    },
+    {
+        "company": "SEB",
+        "country": "Sweden",
+        "slug": "seb",
+        "message": "Article 13 risk in enterprise wealth management systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-SEB-2026-D55"
+    },
+    {
+        "company": "Swedbank",
+        "country": "Sweden",
+        "slug": "swedbank",
+        "message": "Algorithmic transparency failures in mortgage systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-SWB-2026-E08"
+    },
+    {
+        "company": "Barclays (EU)",
+        "country": "Global",
+        "slug": "barclays-eu",
+        "message": "EU AI Act exposure for EU operations.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-BAR-2026-F91"
+    },
+    {
+        "company": "BBVA",
+        "country": "Spain",
+        "slug": "bbva",
+        "message": "High Article 15 risk due to third-party vendor integration.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-BVA-2026-G22"
+    },
+    {
+        "company": "CaixaBank",
+        "country": "Spain",
+        "slug": "caixabank",
+        "message": "Lack of adequate disclosure in voice-based customer service systems.",
+        "category": "Banking & Finance",
+        "risk": "Article 13 & 15",
+        "access_token": "PX-CAX-2026-H33"
+    },
+    {
+        "company": "Linklaters",
+        "country": "London/Global",
+        "slug": "linklaters",
+        "message": "End-client exposure to Article 13 failures.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 15",
+        "access_token": "PX-LNK-2026-D12"
+    },
+    {
+        "company": "Clifford Chance",
+        "country": "London/Global",
+        "slug": "clifford-chance",
+        "message": "Gaps in AI due diligence processes.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 15",
+        "access_token": "PX-CLF-2026-E55"
+    },
+    {
+        "company": "Garrigues",
+        "country": "Spain",
+        "slug": "garrigues",
+        "message": "Non-compliance of internal AI systems.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 15",
+        "access_token": "PX-GAR-2026-H08"
+    },
+    {
+        "company": "Gide Loyrette Nouel",
+        "country": "France",
+        "slug": "gide",
+        "message": "Black-box risks in contract analysis tools.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 15",
+        "access_token": "PX-GID-2026-J91"
+    },
+    {
+        "company": "Allen & Overy",
+        "country": "Global",
+        "slug": "allenovery",
+        "message": "Non-compliance with human oversight requirements (Article 14).",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 15",
+        "access_token": "PX-AOV-2026-L42"
+    },
+    {
+        "company": "Freshfields",
+        "country": "Germany/London",
+        "slug": "freshfields",
+        "message": "Exposure in AI-based M&A due diligence.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-FRS-2026-J12"
+    },
+    {
+        "company": "Hogan Lovells",
+        "country": "Global",
+        "slug": "hogan-lovells",
+        "message": "Article 13 compliance gaps in litigation portfolio management tools.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-HOG-2026-K55"
+    },
+    {
+        "company": "White & Case",
+        "country": "Global",
+        "slug": "whitecase",
+        "message": "Black-box risks in jurisprudence prediction tools.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-WHT-2026-L88"
+    },
+    {
+        "company": "Latham & Watkins",
+        "country": "Global",
+        "slug": "latham-watkins",
+        "message": "Lack of technical documentation for internal research AI tools.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-LAT-2026-M42"
+    },
+    {
+        "company": "CMS",
+        "country": "Global",
+        "slug": "cms-legal",
+        "message": "Client exposure to fines due to unverified AI advice.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-CMS-2026-N01"
+    },
+    {
+        "company": "Loyens & Loeff",
+        "country": "Netherlands/Belgium",
+        "slug": "loyens-loeff",
+        "message": "Regulatory risk in tax optimization tools.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 14 & 26",
+        "access_token": "PX-LOY-2026-P99"
+    },
+    {
+        "company": "Allianz",
+        "country": "Germany",
+        "slug": "allianz",
+        "message": "Risk in insurance premium pricing algorithms.",
+        "category": "Insurance & Pharma",
+        "risk": "Bias & Transparency",
+        "access_token": "PX-ALZ-2026-P01"
+    },
+    {
+        "company": "AXA",
+        "country": "France",
+        "slug": "axa",
+        "message": "Article 52 exposure in claims management systems.",
+        "category": "Insurance & Pharma",
+        "risk": "Bias & Transparency",
+        "access_token": "PX-AXA-2026-Q88"
+    },
+    {
+        "company": "Sanofi",
+        "country": "France",
+        "slug": "sanofi",
+        "message": "Lack of transparency in AI systems for drug discovery.",
+        "category": "Insurance & Pharma",
+        "risk": "Bias & Transparency",
+        "access_token": "PX-SNF-2026-R12"
+    },
+    {
+        "company": "Generali",
+        "country": "Italy",
+        "slug": "generali",
+        "message": "Technical documentation failures in machine learning models.",
+        "category": "Insurance & Pharma",
+        "risk": "Bias & Transparency",
+        "access_token": "PX-GEN-2026-S77"
+    },
+    {
+        "company": "Zurich Insurance",
+        "country": "Switzerland/EU",
+        "slug": "zurich",
+        "message": "Documentation failures in life expectancy prediction models.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-ZUR-2026-Q11"
+    },
+    {
+        "company": "Munich Re",
+        "country": "Germany",
+        "slug": "munich-re",
+        "message": "Article 15 exposure in climate risk assessment systems.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-MUN-2026-R55"
+    },
+    {
+        "company": "Swiss Re",
+        "country": "Switzerland/EU",
+        "slug": "swiss-re",
+        "message": "Disclosure gaps in automated reinsurance.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-SRE-2026-S32"
+    },
+    {
+        "company": "Aviva (EU)",
+        "country": "Global",
+        "slug": "aviva",
+        "message": "Bias risk in premium determination systems.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-AVI-2026-T09"
+    },
+    {
+        "company": "Mapfre",
+        "country": "Spain",
+        "slug": "mapfre",
+        "message": "Lack of transparency in auto claims management systems.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-MAP-2026-U81"
+    },
+    {
+        "company": "Aegon",
+        "country": "Netherlands",
+        "slug": "aegon",
+        "message": "Article 13 failures in AI-based pension systems.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-AEG-2026-V22"
+    },
+    {
+        "company": "Legal & General",
+        "country": "Global",
+        "slug": "legal-general",
+        "message": "AI Act exposure in institutional asset management models.",
+        "category": "Insurance & Asset Management",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-LGN-2026-W44"
+    },
+    {
+        "company": "SAP",
+        "country": "Germany",
+        "slug": "sap",
+        "message": "Article 13 risk in AI tools embedded in ERP.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-SAP-2026-X12"
+    },
+    {
+        "company": "Telefónica",
+        "country": "Spain",
+        "slug": "telefonica",
+        "message": "Lack of adequate disclosure (Article 52) in customer interfaces.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-TEL-2026-Y55"
+    },
+    {
+        "company": "Orange",
+        "country": "France",
+        "slug": "orange",
+        "message": "Cyber robustness failures in network management models.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-ORA-2026-Z08"
+    },
+    {
+        "company": "Deutsche Telekom",
+        "country": "Germany",
+        "slug": "deutsche-telekom",
+        "message": "Regulatory exposure in big data analytics systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-DTK-2026-A91"
+    },
+    {
+        "company": "Accenture (EU)",
+        "country": "Global",
+        "slug": "accenture-eu",
+        "message": "Deployer duty gaps for their clients.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-ACC-2026-B22"
+    },
+    {
+        "company": "Capgemini",
+        "country": "France",
+        "slug": "capgemini",
+        "message": "Risk in undocumented industrial AI applications.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-CAP-2026-C33"
+    },
+    {
+        "company": "Enel",
+        "country": "Italy",
+        "slug": "enel",
+        "message": "Article 15 exposure in smart grid management systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-ENL-2026-D12"
+    },
+    {
+        "company": "EDF",
+        "country": "France",
+        "slug": "edf",
+        "message": "AI safety failures in critical operations systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-EDF-2026-E55"
+    },
+    {
+        "company": "Iberdrola",
+        "country": "Spain",
+        "slug": "iberdrola",
+        "message": "Lack of transparency in energy demand forecasting systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-IBE-2026-F88"
+    },
+    {
+        "company": "Siemens",
+        "country": "Germany",
+        "slug": "siemens",
+        "message": "Regulatory risk in industrial manufacturing AI tools (Article 13).",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-SIE-2026-G42"
+    },
+    {
+        "company": "Airbus",
+        "country": "France/Germany",
+        "slug": "airbus",
+        "message": "Legal exposure in AI systems for logistics and operations.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-AIR-2026-H01"
+    },
+    {
+        "company": "Volkswagen Group",
+        "country": "Germany",
+        "slug": "volkswagen",
+        "message": "AI transparency failures in automated production lines.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-VW-2026-J99"
+    },
+    {
+        "company": "Bayer",
+        "country": "Germany",
+        "slug": "bayer",
+        "message": "Article 13 risk in clinical data analysis systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-BAY-2026-K11"
+    },
+    {
+        "company": "Nokia",
+        "country": "Finland",
+        "slug": "nokia",
+        "message": "System robustness gaps in AI-driven 5G deployments.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-NOK-2026-L55"
+    },
+    {
+        "company": "TotalEnergies",
+        "country": "France",
+        "slug": "totalenergies",
+        "message": "Article 15 exposure in oil and gas exploration prediction systems.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-TOT-2026-M32"
+    },
+    {
+        "company": "Stellantis",
+        "country": "Global",
+        "slug": "stellantis",
+        "message": "Non-compliance of AI tools in supply chain management.",
+        "category": "Tech, Telecom & Energy",
+        "risk": "Article 15 & 52",
+        "access_token": "PX-STL-2026-N09"
+    },
+    {
+        "company": "EY Law",
+        "country": "Germany",
+        "slug": "ey-law",
+        "message": "Regulatory exposure for Deployers avoiding Article 13 transparency standards.",
+        "category": "Tier-1 Law Firms",
+        "risk": "Article 13 & 52",
+        "access_token": "PX-EYL-2026-Z88"
+    }
+]

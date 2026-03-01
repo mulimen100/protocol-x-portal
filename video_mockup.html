@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol-X | Intelligence Briefing Simulation</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 22 8 22 16 12 22 2 16 2 8 12 2' /%3E%3Cline x1='8' y1='8' x2='16' y2='16' /%3E%3Cline x1='16' y1='8' x2='8' y2='16' /%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --slate: #1e293b;
+            --red: #b91c1c;
+            --white: #ffffff;
+            --cyan: #06b6d4;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+        }
+
+        #video-container {
+            width: 1920px;
+            height: 1080px;
+            max-width: 100vw;
+            max-height: 56.25vw;
+            /* 16:9 Aspect Ratio */
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .scene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .scene.active {
+            opacity: 1;
+            z-index: 20;
+        }
+
+        h1 {
+            font-size: 5vw;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5vw;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--slate);
+        }
+
+        /* SCENE 1: Server Room */
+        #scene1 {
+            background: radial-gradient(circle at center, #1e293b 0%, #000 100%);
+        }
+
+        .server-lights {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.05) 50%),
+                linear-gradient(rgba(6, 182, 212, 0.2) 2px, transparent 2px);
+            background-size: 100px 100%, 100% 20px;
+            animation: pulse-light 2s infinite alternate;
+        }
+
+        @keyframes pulse-light {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        /* SCENE 2: Scanning Network */
+        #scene2 {
+            background: #000;
+        }
+
+        .data-grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: linear-gradient(var(--slate) 1px, transparent 1px),
+                linear-gradient(90deg, var(--slate) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: rotateX(60deg) translateY(-100px);
+            animation: move-grid 10s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes move-grid {
+            0% {
+                transform: rotateX(60deg) translateY(0);
+            }
+
+            100% {
+                transform: rotateX(60deg) translateY(40px);
+            }
+        }
+
+        .laser {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--red);
+            box-shadow: 0 0 20px var(--red);
+            top: -10%;
+            animation: scan 4s ease-in-out infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                top: -10%;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
+        }
+
+        /* SCENE 3: Liability Detected */
+        #scene3 {
+            background: var(--navy);
+        }
+
+        .alert-box {
+            border: 2px solid var(--red);
+            background: rgba(185, 28, 28, 0.1);
+            padding: 4vw 6vw;
+            box-shadow: inset 0 0 50px rgba(185, 28, 28, 0.2);
+            animation: strobe 1s infinite alternate;
+        }
+
+        .alert-text {
+            color: var(--red);
+            font-size: 4vw;
+            font-weight: 700;
+            margin-bottom: 1vw;
+            text-transform: uppercase;
+        }
+
+        @keyframes strobe {
+            0% {
+                box-shadow: inset 0 0 20px rgba(185, 28, 28, 0.1);
+            }
+
+            100% {
+                box-shadow: inset 0 0 100px rgba(185, 28, 28, 0.6);
+            }
+        }
+
+        /* SCENE 4: Logo Outro */
+        #scene4 {
+            background: #000;
+        }
+
+        .cta-text {
+            font-size: 2vw;
+            margin-top: 2vw;
+            color: var(--cyan);
+            letter-spacing: 0.3em;
+            animation: fade-in 2s forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Audio visualizer hint */
+        #audio-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #666;
+            font-size: 12px;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="video-container">
+
+        <!-- Scene 1: 0-5s -->
+        <div id="scene1" class="scene active">
+            <div class="server-lights"></div>
+            <h1 style="z-index: 2;">THE DIGITAL FACTORY</h1>
+        </div>
+
+        <!-- Scene 2: 5-15s -->
+        <div id="scene2" class="scene">
+            <div class="data-grid"></div>
+            <div class="laser"></div>
+            <h1 style="font-size: 3vw;">AUTONOMOUS COMPLIANCE AUDIT:<br><span style="color: var(--cyan);">ACTIVE</span>
+            </h1>
+        </div>
+
+        <!-- Scene 3: 15-25s -->
+        <div id="scene3" class="scene">
+            <div class="alert-box">
+                <div class="alert-text">ARTICLE 13 - TRANSPARENCY FAILURE</div>
+                <div style="font-size: 2vw; letter-spacing: 0.5em;">LIABILITY DETECTED</div>
+            </div>
+        </div>
+
+        <!-- Scene 4: 25-35s -->
+        <div id="scene4" class="scene">
+            <h1>PROTOCOL-X</h1>
+            <h2 style="color: white; margin-top: 1vw;">REAL-TIME REGULATORY INTELLIGENCE.</h2>
+            <div class="cta-text">SECURE YOUR AUDIT ACCESS.</div>
+        </div>
+
+        <div id="audio-hint">[ Sound Design Simulation Active ]</div>
+
+    </div>
+
+    <script>
+        // Timeline Controller
+        setTimeout(() => {
+            document.getElementById('scene1').classList.remove('active');
+            document.getElementById('scene2').classList.add('active');
+        }, 5000); // Trigger at 5s
+
+        setTimeout(() => {
+            document.getElementById('scene2').classList.remove('active');
+            document.getElementById('scene3').classList.add('active');
+        }, 15000); // Trigger at 15s
+
+        setTimeout(() => {
+            document.getElementById('scene3').classList.remove('active');
+            document.getElementById('scene4').classList.add('active');
+        }, 25000); // Trigger at 25s
+    </script>
+
+</body>
+
+</html>
