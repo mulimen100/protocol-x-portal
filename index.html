@@ -256,6 +256,46 @@
             margin-top: 80px;
         }
 
+        /* --- Accessibility Modal --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            z-index: 999;
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--slate-700);
+        }
+
         /* SPA Routing Hiding Classes */
         .view {
             display: none;
@@ -380,11 +420,41 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Protocol-X Intelligence Systems.</p>
+            <p>&copy; 2026 Protocol-X Intelligence Systems. | <a href="#"
+                    onclick="openAccessibilityModal(); return false;"
+                    style="color: var(--slate-400); text-decoration: underline;">Accessibility Statement</a></p>
             <p style="margin-top: 8px; color: var(--slate-700);">PRELIMINARY RISK ASSESSMENT. NOT FINAL LEGAL OR
                 REGULATORY ADVICE.</p>
         </div>
     </footer>
+
+    <!-- ACCESSIBILITY MODAL -->
+    <div id="a11y-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="a11y-title">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAccessibilityModal()"
+                aria-label="Close Accessibility Statement">&times;</button>
+            <h2 id="a11y-title" style="font-size: 24px;">ACCESSIBILITY STATEMENT</h2>
+            <div class="text-block" style="font-size: 14px; text-align: left;">
+                <p>Protocol-X is committed to ensuring digital accessibility for people with disabilities. We are
+                    continually improving the user experience for everyone and applying the relevant accessibility
+                    standards.</p>
+
+                <h3 style="font-size: 16px; margin-top: 20px;">CONFORMANCE STATUS:</h3>
+                <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to
+                    improve accessibility for people with disabilities. Protocol-X is partially conformant with WCAG 2.1
+                    level AA.</p>
+
+                <h3 style="font-size: 16px; margin-top: 20px;">FEEDBACK & CONTACT:</h3>
+                <p>We welcome your feedback on the accessibility of Protocol-X. If you encounter accessibility barriers
+                    or require assistance, please let us know:<br>
+                    <strong>E-mail:</strong> protocolx.ops@zohomail.com
+                </p>
+
+                <h3 style="font-size: 16px; margin-top: 20px;">COMPLIANCE OFFICER:</h3>
+                <p>Direct communication regarding accessibility concerns will be addressed within 48 business hours.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Dynamic Data
@@ -1012,6 +1082,23 @@
 
         // Initialize Map on Load
         window.addEventListener('load', initPortal);
+
+        // Accessibility Modal Logic
+        function openAccessibilityModal() {
+            document.getElementById('a11y-modal').classList.add('active');
+            document.querySelector('#a11y-modal .modal-close').focus();
+        }
+
+        function closeAccessibilityModal() {
+            document.getElementById('a11y-modal').classList.remove('active');
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape" && document.getElementById('a11y-modal').classList.contains('active')) {
+                closeAccessibilityModal();
+            }
+        });
 
     </script>
 </body>
