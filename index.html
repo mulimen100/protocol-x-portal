@@ -12,8 +12,8 @@
         :root {
             --slate-900: #0f172a;
             --slate-800: #1e293b;
-            --slate-700: #334155;
-            --slate-400: #94a3b8;
+            --slate-700: #1e293b;
+            --slate-400: #cbd5e1;
             --slate-100: #f1f5f9;
             --navy-700: #1d3557;
             --accent: #2563eb;
@@ -28,6 +28,15 @@
             background-color: var(--slate-100);
             color: var(--slate-900);
             line-height: 1.6;
+        }
+
+        /* Accessibility: Explicit Focus Outline */
+        a:focus,
+        button:focus,
+        input:focus,
+        video:focus {
+            outline: 3px solid var(--accent) !important;
+            outline-offset: 2px !important;
         }
 
         /* --- Layout & Spacing --- */
@@ -262,9 +271,10 @@
 
     <header>
         <div class="container header-content">
-            <a href="#" onclick="navigateHome()" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                    stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <a href="#" onclick="navigateHome(); return false;" class="logo" aria-label="Protocol-X Homepage">
+                <svg role="img" aria-label="Protocol-X Logo" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                    viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <polygon points="12 2 22 8 22 16 12 22 2 16 2 8 12 2"></polygon>
                     <line x1="8" y1="8" x2="16" y2="16"></line>
                     <line x1="16" y1="8" x2="8" y2="16"></line>
@@ -317,20 +327,23 @@
 
             <section class="portal-section">
                 <div class="container">
-                    <div class="login-box">
+                    <form class="login-box" onsubmit="handleLogin(); return false;">
                         <span class="section-title">Client Briefing Access</span>
                         <h3>Institutional Login</h3>
                         <p style="font-size: 14px; color: var(--slate-700);">Enter your secure access token to retrieve
                             your confidential intelligence briefing.</p>
-                        <input type="text" id="access_token" class="login-input" placeholder="e.g. PX-AUTH-123">
-                        <button class="login-btn" onclick="handleLogin()">AUTHENTICATE</button>
+                        <input type="text" id="access_token" class="login-input" placeholder="e.g. PX-AUTH-123"
+                            aria-label="Access Token">
+                        <button type="submit" class="login-btn">AUTHENTICATE</button>
                         <p id="auth_error"
-                            style="color: var(--danger); font-size: 12px; margin-top: 10px; display: none;">INVALID OR
+                            style="color: var(--danger); font-size: 12px; margin-top: 10px; display: none;" role="alert"
+                            aria-live="assertive">INVALID OR
                             EXPIRED ACCESS TOKEN</p>
-                    </div>
+                    </form>
 
                     <div class="video-wrapper">
-                        <video style="width: 100%; height: 100%; object-fit: cover;" controls>
+                        <video style="width: 100%; height: 100%; object-fit: cover;" controls
+                            aria-label="Protocol-X Demonstration Video" title="Protocol-X Demonstration Video">
                             <source src="protocol-x-demo.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -353,7 +366,8 @@
                     </div>
 
                     <div class="video-wrapper">
-                        <video style="width: 100%; height: 100%; object-fit: cover;" controls>
+                        <video style="width: 100%; height: 100%; object-fit: cover;" controls
+                            aria-label="Protocol-X Demonstration Video" title="Protocol-X Demonstration Video">
                             <source src="protocol-x-demo.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
